@@ -9,7 +9,7 @@
 На базе [Лабораторной работы #2](https://github.com/bmstu-rsoi/lab2-template) реализовать механизмы, увеличивающие
 отказоустойчивость системы:
 
-* На Gateway Service для _всех операций_ чтения реализовать паттер Circuit Breaker. Накапливать статистику в памяти, и
+* На Gateway Service для _всех операций_ чтения реализовать паттерн Circuit Breaker. Накапливать статистику в памяти, и
   если система не ответила N раз, то в N+1 раз вместо запроса сразу отдавать fallback. Через небольшой timeout выполнить
   запрос к реальной системе, чтобы проверить ее состояние.
 * В случае недоступности данных из некритичного источника (не основного), возвращается fallback-ответ. В зависимости от
@@ -44,10 +44,10 @@
    [classroom.yml](.github/workflows/classroom.yml) в блоке `Run API Tests`
    прописать переменные:
    ```
-   envVar: '[{ "key": "serviceName", "value": "<Service Name>" }, { "key": "herokuApiKey", "value": "${{secrets.HEROKU_API_KEY}}" }]'
+   envVar: '[{ "key": "serviceName", "value": "<Service Name>" }, { "key": "herokuApiToken", "value": "${{secrets.HEROKU_API_KEY}}" }]'
    ```
 1. Чтобы `HEROKU_API_KEY` не зашивать в коде, его нужно прописать в `Settings` -> `Secrets`.
-1. В переменную `serviceName` нужно прописать имя выключаемого (указан во вариантах задания) сервиса на Heroku.
+1. В переменную `serviceName` нужно прописать имя выключаемого (указан в вариантах задания) сервиса на Heroku.
 
 ### Прием задания
 
